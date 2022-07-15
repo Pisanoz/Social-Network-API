@@ -1,15 +1,15 @@
 const express = require("express");
 
 const app = express();
-const port = 3001;
+const Port = process.env.PORT || 3001;
 const routes = require("./routes");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
 
-db.once("", () => {
+db.once("open", () => {
 	app.listen(PORT, () => {
-		console.log(`API server for ${activity} running on port ${PORT}!`);
+		console.log(`Running on port ${PORT}!`);
 	});
 });

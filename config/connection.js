@@ -1,8 +1,8 @@
 const { connect, connection } = require("mongoose");
 
-connect("mongodb://localhost/postsTags", {
+connect('mongobd://localhost:27017/SocialDB' {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
 
-module.exports = connection;
+module.exports = mongoose.connection;
