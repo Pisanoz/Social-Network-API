@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
-const reactionSchema = require("./reaction");
+const { Schema, model } = require("mongoose");
+const reactionSchema = require("./Reaction");
 const dateFormat = require("../utils/data");
 
-const thought = new mongoose.Schema(
+const thoughtSchema = new Schema(
 	{
 		thoughtText: {
 			type: String,
@@ -29,10 +29,10 @@ const thought = new mongoose.Schema(
 	}
 );
 
-thought.virtual("reactionCount").get(function () {
+thoughtSchema.virtual("reactionCount").get(function () {
 	return this.reactions.length;
 });
 
-const Thought = mongoose.model("Thought", thought);
+const Thought = model("Thought", thoughtSchema);
 
 module.exports = Thought;
